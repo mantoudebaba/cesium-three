@@ -1,5 +1,37 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# cesium 结合 three使用
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+封装cesium常用api：初始化，切换视角，添加实体，切换图源等
+
+封装cesium标绘功能：可以在地图动态绘制点，线，面，测距
+
+封装three在cesium上加载模型
+
+
+
+
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install 
+```
+    
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run dev
+```
+
+
+## Screenshots
+初始化
+![App Screenshot](https://xunjian-1258290170.cos.ap-guangzhou.myqcloud.com/%E6%B1%87%E8%81%9A%E5%B9%B3%E5%8F%B0/%E5%B9%B3%E5%8F%B0%E6%88%AA%E5%9B%BE/CT.png)
+
+模型以及标绘
+![App Screenshot](https://xunjian-1258290170.cos.ap-guangzhou.myqcloud.com/%E6%B1%87%E8%81%9A%E5%B9%B3%E5%8F%B0/%E5%B9%B3%E5%8F%B0%E6%88%AA%E5%9B%BE/CT2.png)
+
