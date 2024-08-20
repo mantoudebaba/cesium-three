@@ -1,8 +1,8 @@
 <!--
  * @Author: LXL
  * @Date: 2024-06-14 16:15:38
- * @LastEditTime: 2024-08-19 15:38:36
- * @Description: 光纤通信
+ * @LastEditTime: 2024-08-20 09:30:27
+ * @Description: 示例
  * @FastButton: ctrl+win+i, ctrl+win+t
 -->
 <template>

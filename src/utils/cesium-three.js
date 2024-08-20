@@ -1,7 +1,7 @@
 /*
  * @Author: LXL
  * @Date: 2024-07-05 11:21:22
- * @LastEditTime: 2024-08-19 15:44:59
+ * @LastEditTime: 2024-08-20 12:06:43
  * @Description: cesium和three封装使用
  * @FastButton: ctrl+win+i, ctrl+win+t
  */
@@ -1156,7 +1156,13 @@ function addLayerModalCesium(viewer, config) {
  * @param {divLabel} modalDivLayer  根据addLayerModalCesium返回的弹窗对象
  */
 function removeLayerModalCesium(modalDivLayer) {
-  if (modalDivLayer) modalDivLayer.remove();
+  if (Array.isArray(modalDivLayer)) {
+    modalDivLayer.forEach((item) => {
+      item.remove();
+    });
+  } else {
+    if (modalDivLayer) modalDivLayer.remove();
+  }
 }
 
 /**
@@ -1250,7 +1256,13 @@ function hideShowEntitiesCesium(entities, type) {
  * @param {Boolean} type  - 显示或者隐藏弹窗对象
  */
 function hideShowLayerModalCesium(modalDivLayer, type) {
-  if (modalDivLayer) modalDivLayer.toggleShow(type);
+  if (Array.isArray(modalDivLayer)) {
+    modalDivLayer.forEach((item, index) => {
+      modalDivLayer[index].toggleShow(type);
+    });
+  } else {
+    if (modalDivLayer) modalDivLayer.toggleShow(type);
+  }
 }
 /**
  * 本地或者链接 获取GeoJson数据
@@ -1330,7 +1342,7 @@ function initThree(container) {
   three.scene = new THREE.Scene(); //场景
   three.camera = new THREE.PerspectiveCamera(fov, aspect, near, far); //相机
   three.renderer = new THREE.WebGLRenderer({ alpha: true }); //渲染
-  let Amlight = new THREE.AmbientLight(0xffffff, 2); //灯光
+  let Amlight = new THREE.AmbientLight(0xffffff, 20); //灯光
   three.scene.add(Amlight);
   container.appendChild(three.renderer.domElement);
   three.mixer = new THREE.AnimationMixer(three.scene);
@@ -1570,7 +1582,7 @@ export {
   removeImageryMapCesium, //删除地图其他底图对象
   removePrimitivesCesium, //删除动态效果 如下雨 河流
   hideShowEntitiesCesium, //显示或者隐藏实体对象
-  hideShowLayerModalCesium, //显示或者隐藏实体对象
+  hideShowLayerModalCesium, //显示或者隐藏弹窗对象
   GeoJsonDataSourceCesium, //获取genjson文件
   GeoJsonLocaToPositionsCesium, //把本地genjson文件 整理为【经，纬度】
   renderCesium, //渲染
